@@ -4,20 +4,22 @@ import recentpost from '../temporardata/recent';
 import blogimage from "../assets/blogimage.jpg";
 import { FaFacebook } from "react-icons/fa6";
 import { FaDiscord, FaGithub, FaInstagram, FaLinkedin, FaSnapchat, FaTwitter, FaYoutube } from 'react-icons/fa';
-
+import { useTheme } from '../../ThemeContext';
 
 const SinglePost = () => {
+
+  const {theme} = useTheme()
   const data = singlepost;
   const recent = recentpost;
 
   return (
-    <div className="container mx-auto">
-      <div className="blogimage">
+    <div className="container mx-auto ">
+      {/* <div className="blogimage">
         <img src={blogimage} alt="" className="w-full" />
-      </div>
+      </div> */}
 
-      <div className="flex flex-wrap">
-        <div className="right-container  w-full lg:w-7/12 p-6">
+      <div className="flex flex-wrap  ">
+        <div className={`right-container  mt-28 w-full lg:w-7/12 p-6 ${theme ==='dark'?'text-white ':"text-black"}`}>
           {data.map((v, i) => (
             <div key={i} className="postdata p-6 border-2 rounded-xl mb-8">
               <img src={v.image} alt="" className="w-full rounded-lg mb-6" />
@@ -30,24 +32,25 @@ const SinglePost = () => {
           ))}
         </div>
 
-        <div className="left-container w-full lg:w-5/12 p-4">
+        <div className="left-container w-full lg:w-5/12 p-4 ">
           <div className="recents mt-16 text-center">
             <h1 className="text-4xl font-semibold underline underline-offset-8 text-blue-700">Recent Posts</h1>
             {recent.map((v, i) => (
-              <div key={i} className="p-4 mt-4">
+              <div key={i} className={`p-4 mt-4 ${theme ==='dark'?'text-blue-500 border-2 bg-gray-900 border-violet-300 rounded-lg':'text-black'} `}>
                 <div className="flex">
-                  <img src={v.image} alt="" className="rounded-lg object-cover w-24 h-24 mr-4" />
-                  <h2 className="text-lg lg:text-xl font-semibold text-start">{v.title}</h2>
+                  <img src={v.image} alt="" className="rounded-lg object-cover w-24 h-24 mr-4 " />
+                  <h2 className="text-lg lg:text-xl font-semibold text-start ">{v.title}</h2>
+                 
                 </div>
                 <div className="text-center mt-2">
-                  <h2 className="text-sm font-bold">Published Date: {v.publishedDate}</h2>
+                <h2 className="text-sm font-bold ">Published Date: {v.publishedDate}</h2>
                 </div>
               </div>
             ))}
           </div>
-          <div className="categories mt-16">
-            <h1 className="text-blue-700 text-4xl font-semibold mt-10 text-center underline underline-offset-8">Categories</h1>
-            <ul className="mt-10 pt-4 p-4 text-xl lg:text-2xl font-semibold border-4 border-gray-100 rounded space-y-3">
+          <div className={`categories mt-16 ${theme ==='dark'?'text-blue-600 ':''}` }>
+            <h1 className={`text-blue-700 text-4xl font-semibold mt-10 text-center underline underline-offset-8`}>Categories</h1>
+            <ul className={`mt-10 pt-4 p-4 text-xl lg:text-2xl font-semibold    rounded space-y-3 ${theme==='dark'?'border border-black':'border-4'}`}>
               <li className="border-2 border-blue-400 p-4 rounded-lg hover:bg-blue-500">Health <span className="text-xl lg:text-4xl">→</span></li>
               <li className="border-2 border-blue-400 p-4 rounded-lg hover:bg-blue-500">Education <span className="text-xl lg:text-4xl">→</span></li>
               <li className="border-2 border-blue-400 p-4 rounded-lg hover:bg-blue-500">Entertainment <span className="text-xl lg:text-4xl">→</span></li>
@@ -56,7 +59,7 @@ const SinglePost = () => {
               <li className="border-2 border-blue-400 p-4 rounded-lg hover:bg-blue-500">Artificial Intelligence <span className="text-xl lg:text-4xl">→</span></li>
             </ul>
           </div>
-          <div className="followus mt-20" >
+          <div className={`followus mt-20 ${theme ==='dark'?'text-white':'text-black'}`} >
             <h1 className='text-4xl text-center text-blue-600 font-semibold underline underline-offset-8' >Follow Us</h1>
             <div className='social-btn mt-10'>
       <div className='gap-20 text-center flex justify-center'>

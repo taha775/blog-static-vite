@@ -6,8 +6,10 @@ import Education from "../BlogCategories/Education.jsx";
 import Entertainment from "../BlogCategories/Entertainment.jsx";
 import Health from "../BlogCategories/Health.jsx";
 import Technology from "../BlogCategories/Technology.jsx";
+import { useTheme } from '../../../ThemeContext.jsx';
 
 const Blogs = () => {
+  const  {theme} = useTheme()
   const [selectedCategory, setSelectedCategory] = useState('ai');
 
   const showCategory = (category) => {
@@ -75,14 +77,14 @@ const Blogs = () => {
         </div>
         <div className='w-full md:w-1/2 px-4'>
           <h1 className='text-center mb-8 text-5xl underline font-bold text-blue-600'>NEWS</h1>
-          <div className='overflow-y-auto h-96 pr-2'>
+          <div className='overflow-y-auto h-96 pr-2 '>
             {data.map((item, index) => (
-              <div key={index} className='bg-white shadow-md rounded-lg mb-4 p-4'>
-                <div className='p-4'>
+              <div key={index} className={` shadow-md rounded-lg mb-4 p-4' ${theme ==='dark'?'bg-black border border-violet-400 ' :'bg-white'}  `}>
+                <div className='p-4 '>
                   <h5 className='text-lg font-semibold mb-1'>{item.title}</h5>
-                  <p className='text-sm text-blue-600 mb-1'>Published Date: {item.published_date}</p>
-                  <p className='text-sm font-semibold text-gray-500 mb-1'>By: {item.person_name}</p>
-                  <p className='text-sm text-gray-700'>{item.description}</p>
+                  <p className='text-sm text-blue-400 mb-1'>Published Date: {item.published_date}</p>
+                  <p className='text-sm font-semibold text-yellow-500 mb-1'>By: {item.person_name}</p>
+                  <p className={`text-sm  ${theme ==='dark'?'text-blue-600':' text-gray-500'} `}>{item.description}</p>
                 </div>
               </div>
             ))}

@@ -3,13 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  height: 100vh;
-  margin: 0;
-  color: black;
-  font-family: outfit;}
+  body{
+    height: 100vh;
+    margin: 0;
+    color: black;
+    font-family: outfit;}
 
-  *{
-    margin: 10;
-    padding: 10;
-  }
+    *{
+      margin: 10;
+      padding: 10;
+    }
+
+
+

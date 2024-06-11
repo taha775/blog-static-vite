@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import AI from "../../temporardata/ai"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useTheme } from '../../../ThemeContext';
 
 const Ai = () => {
+
+  const {theme} = useTheme()
 
   const [flipped, setFlipped] = useState(Array(AI.length).fill(false));
 
@@ -23,7 +26,7 @@ const Ai = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-10 gap-y-24  gap-x-9">
+    <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-10 gap-y-44  gap-x-9">
       {AI.map((item, index) => (
         <div
           key={index}
@@ -31,24 +34,27 @@ const Ai = () => {
           onClick={() => handleFlip(index)}
           data-aos="fade-up" // AOS animation type
         >
-          <div className={`absolute w-full h-full   transition-transform duration-500 transform ${flipped[index] ? 'rotate-y-180' : ''} hover:scale-105`}>
-            <div className="bg-white shadow-lg   rounded-lg overflow-hidden">
+          <div className={` w-full h-full mb-5  transition-transform duration-500 transform ${flipped[index] ? 'rotate-y-180' : ''} hover:scale-105`}>
+            <div className='bg-white shadow-lg   justify-start   rounded-lg overflow-hidden '>
               <img className="w-full h-56 object-cover object-center" src={item.image} alt={item.title} />
-              <div className="p-4 h-auto hover:text-blue-600">
+              <div className={`p-4  hover:text-blue-600 ${theme === 'dark' ? 'bg-gray-900 text-white rounded-lg border-2 border-black' : 'bg-white text-black border border-gray-300'}`}>
               <h2 className="text-lg font-semibold text-black-600 cursor-pointer overflow-hidden h-16">{item.title}</h2>
+              <p className={`text-sm text-black ${theme ==='dark'? 'text-white':'text-black'}`}>{item.description}</p>
 
-                <div className="flex items-center   mt-2">
+                <div className='flex items-center   mt-2'>
                   <img className="w-8  h-8 rounded-full mr-2" src={item.profile_icon} alt={item.person_name} />
-                  <p className="text-sm flex text-gray-700">{item.person_name}</p>
+                  <p className={`text-sm flex  ${theme ==="dark"? 'text-blue-400':'text-gray-700'}` }>{item.person_name}</p>
+
                 </div>
-                <p className="text-sm text-gray-600 mt-2">Published Date: {item.published_date}</p>
+                <p  className={`text-sm  mt-4 flex  ${theme ==="dark"? 'text-blue-400':'text-gray-700'}` }>Published Date: {item.published_date}</p>
+
               </div>
             </div>
           </div>
           <div className={`absolute w-full h-full transition-transform duration-500 transform ${flipped[index] ? 'rotate-y-0' : 'rotate-y-180'}`}>
         
 
-              <p className="text-lg text-fuchsia-200 mt-2">{item.description}</p>
+            
             
             </div>
           </div>

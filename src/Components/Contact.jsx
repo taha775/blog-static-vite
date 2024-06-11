@@ -37,13 +37,13 @@ const Contact = () => {
       </div>
 
       <div className='mt-20'>
-        <div className='flex justify-center'>
+        <div className='flex justify-center '>
           <img style={{ width: "1000px", height: "500px" }} className='w-full h-full object-cover' src={maps} alt="map" />
         </div>
 
-        <div className='flex '>
+        <div className='flex mt-10  '>
           <img   className=' flex justify-end  ' style={{width:"550px"}} src={form} alt="" />
-        <form className="max-w-lg mx-auto mt-20 ">
+        <form className="max-w-lg mx-auto mt-20  ">
         <h1 className='items-center flex justify-center font-semibold mt-7 text-3xl text-blue-600 underline underline-offset-8'>Fill Out The Form To Reach Us </h1>
 
         <div className="mb-6 text-blue-600 flex mt-20 w-auto  gap-7">

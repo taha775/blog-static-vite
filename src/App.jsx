@@ -1,21 +1,25 @@
-import React from 'react'
-
-import Navigation from './Config/Navigation'
-import Navbar from './Components/Navbar'
-import Footer from "../src/Components/Footer"
+import React from 'react';
+import Navigation from './Config/Navigation';
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
 import '@radix-ui/themes/styles.css';
-
+import { ThemeProvider } from '../ThemeContext';
 
 const App = () => {
   return (
-    <div className=''>
-      <Navbar/>
-      <Navigation/>
-      <Footer/>
-      
-    </div>
    
-  )
-}
+<div className='root'>
+<ThemeProvider>
+  
+        <Navbar />
+        <Navigation />
+        <Footer /> 
+        </ThemeProvider> 
 
-export default App
+    </div>
+         
+   
+  );
+};
+
+export default App;
