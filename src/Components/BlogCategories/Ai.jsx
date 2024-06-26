@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import AI from "../../temporardata/ai"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useTheme } from '../../../ThemeContext';
+import { useSelector } from 'react-redux';
+// import { useTheme } from '../../../ThemeContext';
 
 const Ai = () => {
-
-  const {theme} = useTheme()
+  const { theme } = useSelector(state => state.theme); 
+  // const {theme} = useTheme()
 
   const [flipped, setFlipped] = useState(Array(AI.length).fill(false));
 
@@ -38,7 +39,7 @@ const Ai = () => {
             <div className='bg-white shadow-lg   justify-start   rounded-lg overflow-hidden '>
               <img className="w-full h-56 object-cover object-center" src={item.image} alt={item.title} />
               <div className={`p-4  hover:text-blue-600 ${theme === 'dark' ? 'bg-gray-900 text-white rounded-lg border-2 border-black' : 'bg-white text-black border border-gray-300'}`}>
-              <h2 className="text-lg font-semibold text-black-600 cursor-pointer overflow-hidden h-16">{item.title}</h2>
+              <h2 className="text-l font-sans text-black-600 cursor-pointer overflow-hidden h-16">{item.title}</h2>
               <p className={`text-sm text-black ${theme ==='dark'? 'text-white':'text-black'}`}>{item.description}</p>
 
                 <div className='flex items-center   mt-2'>

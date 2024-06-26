@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import data from "../../temporardata/data";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useTheme } from '../../../ThemeContext';
+// import { useTheme } from '../../../ThemeContext';
+import { useSelector } from 'react-redux';
 
 const Cards = () => {
-  const { theme } = useTheme();
+  const { theme } = useSelector(state => state.theme); 
   const [flipped, setFlipped] = useState(Array(data.length).fill(false));
 
   useEffect(() => {
@@ -36,7 +37,7 @@ const Cards = () => {
             <div className={` justify-start shadow-lg rounded-lg items-start overflow-hidden ${theme === 'dark' ? 'bg-gray-900 text-white rounded-lg border-2 border-black' : 'bg-white text-black border border-gray-300'}`}>
               <img className="w-full h-56 object-cover object-center" src={item.image} alt={item.title} />
               <div className="p-2 h-56 hover:text-blue-600">
-                <h2 className="text-2xl  font-semibold cursor-pointer overflow-hidden h-16">{item.title}</h2>
+                <h2 className="  font-sans text-2xl cursor-pointer overflow-hidden h-16">{item.title}</h2>
                 <p className="text-sm mt-2 text-center">{item.description}</p>
                 <div className="flex items-center mt-2">
                   <img className="w-8 h-8 rounded-full mr-2" src={item.profile_icon} alt={item.person_name} />

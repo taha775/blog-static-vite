@@ -7,9 +7,10 @@ import Entertainment from "../BlogCategories/Entertainment.jsx";
 import Health from "../BlogCategories/Health.jsx";
 import Technology from "../BlogCategories/Technology.jsx";
 import { useTheme } from '../../../ThemeContext.jsx';
+import { useSelector } from 'react-redux';
 
 const Blogs = () => {
-  const  {theme} = useTheme()
+  const { theme } = useSelector(state => state.theme); 
   const [selectedCategory, setSelectedCategory] = useState('ai');
 
   const showCategory = (category) => {
@@ -20,9 +21,9 @@ const Blogs = () => {
     <div className='container mx-auto p-6'>
       <div className='flex-col mt-12'>
         <div className='text-center mb-10'>
-          <h1 className='text-5xl font-serif font-bold underline md:underline-offset-4 text-blue-600'>Blog Categories</h1>
+          <h1 className='text-5xl font-sans font-bold underline md:underline-offset-4 text-blue-600'>Blog Categories</h1>
         </div>
-        <div className='mt-12 space-x-3 btn font-serif font-semibold flex justify-center flex-wrap gap-4'>
+        <div className='mt-12 space-x-3 btn font-sans font-semibold flex justify-center flex-wrap gap-4'>
           <button
             onClick={() => showCategory('ai')}
             className={`shadow-md rounded-lg px-4 py-2 ${

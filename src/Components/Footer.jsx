@@ -1,17 +1,18 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa6';
 import { useTheme } from '../../ThemeContext';
+import { useSelector } from 'react-redux';
 
 
 const Footer = () => {
-  const {theme} = useTheme()
+  const { theme } = useSelector(state => state.theme); 
   return (
     <div className={` ${theme ==="dark" ? "bg-black text-blue-600" :"bg-white text-gray-700" } `}>
       <div className={`px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-screen-xl md:px-24 lg:px-4 mt-56 ${theme ==="dark" ?"bg-black":'' }`}>
         <div className="grid mb-8 lg:grid-cols-6">
           <div className="grid grid-cols-2 gap-5 lg:col-span-4 md:grid-cols-4">
             <div>
-              <p className={`font-medium tracking-wide  ${theme ==='dark' ?'text-white' :'text-black'} `}>Category</p>
+              <p className={`font-sans tracking-wide  ${theme ==='dark' ?'text-white' :'text-black'} `}>Category</p>
               <ul className="mt-2 space-y-2">
                 <li><a href="/" className=" transition-colors duration-300 hover:text-blue-600">News</a></li>
                 <li><a href="/" className=" transition-colors duration-300 hover:text-blue-600">World</a></li>
@@ -20,7 +21,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-            <p className={`font-medium tracking-wide  ${theme ==='dark' ?'text-white' :'text-black'} `}>Apples</p>
+            <p className={`font-sans tracking-wide  ${theme ==='dark' ?'text-white' :'text-black'} `}>Apples</p>
 
               <ul className="mt-2 space-y-2">
                 <li><a href="/" className=" transition-colors duration-300 hover:text-blue-600">Web</a></li>
@@ -31,7 +32,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-            <p className={`font-medium tracking-wide  ${theme ==='dark' ?'text-white' :'text-black'} `}>Cherry</p>
+            <p className={`font-sans tracking-wide  ${theme ==='dark' ?'text-white' :'text-black'} `}>Cherry</p>
 
               <ul className="mt-2 space-y-2">
                 <li><a href="/" className=" transition-colors duration-300 hover:text-blue-600">Media</a></li>
@@ -42,7 +43,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <p className={`font-medium tracking-wide ${theme ==="dark" ? "bg-black text-white" :"bg-white text-black"}`}>Business</p>
+              <p className={`font-sans tracking-wide ${theme ==="dark" ? "bg-black text-white" :"bg-white text-black"}`}>Business</p>
               <ul className="mt-2 space-y-2">
                 <li><a href="/" className=" transition-colors duration-300 hover:text-blue-600">Infopreneur</a></li>
                 <li><a href="/" className=" transition-colors duration-300 hover:text-blue-600">Personal</a></li>
@@ -54,7 +55,7 @@ const Footer = () => {
           </div>
           {/* Subscriptions */}
           <div className={`md:max-w-md lg:col-span-2 lg:mt-0 mt-5 ${theme ==="dark" ? "bg-black text-blue-600" :"bg-white text-gray-700" } `} >
-            <p className=" tracking-wide text-2xl font-semibold">Subscribe for updates</p>
+            <p className=" tracking-wide text-2xl font-sans">Subscribe for updates</p>
             <form className="mt-4 flex flex-col md:flex-row">
               <input
                 type="email"
@@ -64,7 +65,7 @@ const Footer = () => {
               />
               <button
                 type="submit"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white bg-black transition duration-200 rounded shadow-md hover:bg-orange-500 focus:outline-none"
+                className="inline-flex items-center justify-center h-12 px-6 font-sans tracking-wide text-white bg-black transition duration-200 rounded shadow-md hover:bg-orange-500 focus:outline-none"
               >
                 Subscribe
               </button>

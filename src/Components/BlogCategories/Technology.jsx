@@ -35,7 +35,7 @@ const Technology = () => {
             <div className="bg-white shadow-lg   rounded-lg overflow-hidden">
               <img className="w-full h-56 object-cover object-center" src={item.image} alt={item.title} />
               <div className="p-4 h-auto hover:text-blue-600">
-              <h2 className="text-lg font-semibold text-black-600 cursor-pointer overflow-hidden h-16">{item.title}</h2>
+              <h2 className="text-lg font-sans text-black-600 cursor-pointer overflow-hidden h-16">{item.title}</h2>
 
                 <div className="flex items-center   mt-2">
                   <img className="w-8  h-8 rounded-full mr-2" src={item.profile_icon} alt={item.person_name} />
