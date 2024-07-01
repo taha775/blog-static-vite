@@ -4,16 +4,9 @@ module.exports = {
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: "class",
+  darkMode:"class",
   theme: {
-    extend: {
-      colors: {
-        myorange: '#FF9900',
-      },
-      fontFamily: {
-        myfont: ['Montserrat', 'sans-serif'],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 }

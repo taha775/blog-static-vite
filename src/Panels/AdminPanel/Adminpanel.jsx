@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
   
 import { hideNavbarAndFooter, showNavbarAndFooter } from '../../store/slices/layoutslice';
 import { useDispatch } from 'react-redux';
@@ -7,13 +7,15 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Adminpanel = () => {
-  const  [show,setShow] = useState(false)
   const navigate = useNavigate();
 
   const handlePost = () => {
     navigate("/post");
   };
 
+  const handleAllUsers = () => {
+    navigate("/alluser");
+  };
 
   const handleRequests = () => {
     navigate("/request");
@@ -51,7 +53,7 @@ const Adminpanel = () => {
   
           <div className="space-y-2">
             <button className="block py-2 px-4 rounded hover:bg-gray-700">Profile</button>
-            <button className="block py-2 px-4 rounded hover:bg-gray-700" onClick={()=>setShow(true)}>
+            <button className="block py-2 px-4 rounded hover:bg-gray-700" onClick={handleAllUsers}>
               All Users
             </button>
             <button className="block py-2 px-4 rounded hover:bg-gray-700" onClick={handlePost}>
@@ -99,7 +101,6 @@ const Adminpanel = () => {
             </div>
   
             {/* Add more cards as needed */}
-          
           </div>
         </div>
       </div>

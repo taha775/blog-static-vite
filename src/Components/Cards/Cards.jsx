@@ -25,8 +25,7 @@ const Cards = () => {
   };
 
   return (
-    <div className={` grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-y-24 gap-x-9 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
-      
+    <div className={`grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-y-24 gap-x-9 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
       {data.map((item, index) => (
         <div
           key={index}
@@ -34,7 +33,6 @@ const Cards = () => {
           onClick={() => handleFlip(index)}
           data-aos="fade-up"
         >
-          
           <div className={`absolute w-full h-full transition-transform duration-500 transform ${flipped[index] ? 'rotate-y-180' : ''} hover:scale-105`}>
             <div className={` justify-start shadow-lg rounded-lg items-start overflow-hidden ${theme === 'dark' ? 'bg-gray-900 text-white rounded-lg border-2 border-black' : 'bg-white text-black border border-gray-300'}`}>
               <img className="w-full h-56 object-cover object-center" src={item.image} alt={item.title} />
