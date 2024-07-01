@@ -16,7 +16,7 @@ const layoutslice = createSlice({
         },
         showNavbarAndFooter :(state) =>{
             state.showNavbar = true
-            state.showNavbar = false
+            state.showFooter = true
         }
     }
 })

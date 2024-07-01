@@ -15,3 +15,4 @@ export const store = configureStore({
     // Add other reducers here as needed
   },
 });
+ 

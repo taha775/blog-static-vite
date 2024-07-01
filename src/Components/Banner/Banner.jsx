@@ -1,26 +1,50 @@
-// Banner.jsx
-
 import React from 'react';
-import banner from "../../assets/banner.png";
-// import { useTheme } from '../../../ThemeContext.jsx';
+import { useSelector } from 'react-redux';
+import { CgProfile } from 'react-icons/cg';
+import ctimg1 from '../../assets/ctimg1.png';
 
-import {  useSelector } from 'react-redux';
 const Banner = () => {
-  const { theme } = useSelector(state => state.theme); // Accessing theme state from Redux  state jo ha store sa get hogi 
-  // const themeData = useSelector(state => state.theme); // Accessing theme state from Redux
-
-
+  const { theme } = useSelector(state => state.theme);
 
   return (
-    <div className={`flex justify-center items-center flex-col ${theme === 'dark' ? 'bg-black' : 'bg-white'} transition duration-500`}>
-      <img className='w-auto h-auto items-center mt-10' src={banner} alt="Banner" />
-      <div className="title flex items-center text-center">
-        <h1 className={`text-4xl sm:text-3xl lg:text-5xl xl:text-6xl leading-snug font-sans font-bold mt-10 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-          A <span className='text-blue-600'>Journey</span> Through the
-          <span className='text-blue-600'> Unseen:</span> Exploring the
-          <span className='text-blue-600'> Wonders</span> of the
-          <span className='text-blue-600'> World</span>
-        </h1>
+    <div className={`bg-${theme === 'dark' ? 'black' : 'white'}container ml-16 transition duration-500  top-0  `}>
+      
+      <div className="  mx-auto p-4 md:p-8   "> 
+        <div className="grid grid-cols-1 md:grid-cols-2  mr-20">
+          {/* Left Column (Content) */}
+          <div className="flex flex-col justify-center mt-3">
+            <p className="font-bold text-lg">Related: <span className='text-myorange'> News</span></p>
+            <div className="  ">
+              <h1 className="text-3xl md:text-5xl font-bold">
+                Israel Is <span className="text-myorange">Rocked</span> By Sirens As
+                Iran <span className="text-myorange">Launches Dozens</span> Of
+                Ballistic <span className="text-myorange">Missiles</span>
+              </h1>
+              <div className='flex gap-8'>
+              <p className="text-base  gap-2 flex items-center md:text-lg">
+                <CgProfile /> Travis
+              </p>
+              <p className="text-base flex gap-2  items-center md:text-lg">
+                <CgProfile /> 12 APR 2024
+              </p>
+              </div>
+              <p className="text-base md:text-lg mt-4">
+                On 1 April 2024, an Israeli airstrike destroyed the Iranian consulate annex building
+                adjacent to the Iranian embassy in Damascus, Syria, killing 12 people, including a
+                senior Quds Force commander of the Islamic Revolutionary Guard Corps (IRGC), Brigadier
+                General Mohammad Reza Zahedi and seven other IRGC officers. Israel does
+                not claim responsibility for the .....{' '}
+                <span className="text-myorange">Read More</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column (Image) */}
+          <div className=" absolute  md:h-full">
+            <img  className="h-[24rem]  " src={ctimg1} alt="Banner Image" />
+          </div>
+          
+        </div>
       </div>
     </div>
   );

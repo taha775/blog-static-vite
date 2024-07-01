@@ -13,6 +13,17 @@ import Adminpanel from "../Panels/AdminPanel/Adminpanel";
 import Writerpanel from "../Panels/WriterPanel/Writerpanel";
 import Post from "../Panels/UserPanel/Post";
 import Mypost from "../Panels/UserPanel/Mypost";
+import Buisness from "../Components/Categories/Buisness";
+import Entertainment from "../Components/Categories/Entertainment";
+import Health from "../Components/Categories/Health";
+import News from "../Components/Categories/News";
+import Sports from "../Components/Categories/Sports";
+import Technology from "../Components/Categories/Technology";
+import Lifestyle from "../Components/Categories/Lifestyle";
+import Other from "../Components/Categories/Other";
+import Education from "../Components/Categories/Education";
+import Disclaimer from "../Components/Disclaimer";
+import Privacypolicy from "../Components/Privacypolicy";
 
 
 
@@ -20,13 +31,30 @@ import Mypost from "../Panels/UserPanel/Mypost";
 const Navigation = () => {
   return (
         <Routes>
+          {/* pages */}
         <Route path="/" element={<Home/>} />
+        <Route path="/disclaimer" element={<Disclaimer/>} />
+        <Route path="/privacypolicy" element={<Privacypolicy/>} />
         <Route path="/blog" element={<Blogs/>} />
         <Route path="/singlepost" element={<SinglePost/>} />
-        <Route path="/about" element={<About/>} />
+        <Route path="/aboutus" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/signup" element={<Signup/>} />
         <Route path="/login" element={<Login/>} />
+
+        {/* categories */}
+        <Route path="/buisness" element={<Buisness/>} />
+        <Route path="/entertainment" element={<Entertainment/>} />
+        <Route path="/health" element={<Health/>} />
+        <Route path="/news" element={<News/>} />
+        <Route path="/sports" element={<Sports/>} />
+        <Route path="/technology" element={<Technology/>} />
+        <Route path="/lifestyle" element={<Lifestyle/>} />
+        <Route path="/education" element={<Education/>} />
+        <Route path="/history" element={<History/>} />
+        <Route path="/other" element={<Other/>} />
+        
+        {/* panels */}
         <Route path="/user-panel/:uid" element={<Userpanel  showNavBar={false} showFooter={false} />} />
         <Route path="/admin-panel"element={<Adminpanel  showNavBar={false} showFooter={false} />} />
         <Route path="/writer-panel/:uid" element={<Writerpanel  showNavBar={false} showFooter={false} />} />
